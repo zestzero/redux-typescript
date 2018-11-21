@@ -279,4 +279,7 @@ module.exports = {
   performance: {
     hints: false,
   },
+  devServer: {
+    historyApiFallback: true
+  },
 };

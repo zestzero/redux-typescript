@@ -1,11 +1,21 @@
+import './index.css';
+
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import { createStore } from 'redux';
+import { ISelectComponent } from './actions';
+import { selectComponent } from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
+import Layout from './Layout';
+import { IStoreState } from './types';
+
+const store = createStore<IStoreState, ISelectComponent, any, any>(selectComponent, {
+  selectedComponent: '',
+});
+
 ReactDOM.render(
-  <App />,
+  <Layout store={store} />,
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
